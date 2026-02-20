@@ -56,5 +56,25 @@ int main()
     ShopData shopdata;
     std::vector<std::string> categories;
 
+    int choice;
+    do
+    {
+        std::cout << "\n=== SHOP BILLING SYSTEM ===\n";
+        std::cout << "1. Seller\n2. Customer\n0. Exit\n";
+        std::cout << "Choose role: ";
+        switch (choice)
+        {
+
+        case 1:
+            break;
+        case 2:
+            break;
+        case 0:
+            std::cout << "Goodbye!\n";
+            return 0;
+        default:
+            std::cout << "Invalid Input\n";
+        }
+    } while (choice != 0);
     return 0;
 }
