@@ -25,3 +25,12 @@ struct Product
     unsigned int quantity;
     Status status;
 };
+
+struct ProductSales
+{
+    std::string id;
+    std::string name;
+    unsigned int unitsSold = 0;
+    double sales = 0;
+    double tax = 0;
+};
