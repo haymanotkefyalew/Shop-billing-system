@@ -45,6 +45,7 @@ struct ShopData
     std::vector<ProductSales> productSummary;
 };
 
+void loadProducts(std::vector<Product> &products, int &count, const char *file);
 int main()
 {
     int productCount = 0;
