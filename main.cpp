@@ -47,6 +47,12 @@ struct ShopeData
 
 int main()
 {
+    int productCount = 0;
+    const char *fileName = "products.txt";
+
+    std::vector<Product> products;
+    ShopData shopdata;
+    std::vector<std::string> categories;
 
     return 0;
 }
