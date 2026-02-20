@@ -35,3 +35,12 @@ struct ProductSales
     double sales = 0;
     double tax = 0;
 };
+
+struct ShopeData
+{
+    unsigned int receiptCount = 0;
+    unsigned int totalItemsSold = 0;
+    double totalSales = 0;
+    double totalTax = 0;
+    std::vector<ProductSales> productSummary;
+};
