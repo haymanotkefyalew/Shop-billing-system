@@ -15,3 +15,13 @@ enum SortType
     PRICE_A,
     PRICE_D
 };
+
+struct Product
+{
+    std::string id;
+    std::string name;
+    std::string category;
+    double price;
+    unsigned int quantity;
+    Status status;
+};
