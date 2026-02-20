@@ -44,3 +44,9 @@ struct ShopeData
     double totalTax = 0;
     std::vector<ProductSales> productSummary;
 };
+
+int main()
+{
+
+    return 0;
+}
