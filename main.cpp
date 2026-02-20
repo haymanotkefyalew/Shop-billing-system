@@ -36,7 +36,7 @@ struct ProductSales
     double tax = 0;
 };
 
-struct ShopeData
+struct ShopData
 {
     unsigned int receiptCount = 0;
     unsigned int totalItemsSold = 0;
