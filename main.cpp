@@ -13,4 +13,4 @@ enum SortType
     NAME_D,
     PRICE_A,
     PRICE_D
-}
+};
