@@ -107,4 +107,5 @@ void loadProducts(std::vector<Product> &products, int &count, const char *file)
 
         products.push_back(p);
     }
+    fin.close();
 }
