@@ -58,6 +58,8 @@ int main()
     ShopData shopdata;
     std::vector<std::string> categories;
 
+    loadProducts(products, productCount, fileName);
+    loadCategories(categories);
     int choice;
     do
     {
