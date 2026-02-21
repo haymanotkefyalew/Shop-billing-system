@@ -70,8 +70,10 @@ int main()
         {
 
         case 1:
+            userMenu(products, productCount, fileName, 1, shopdata, categories);
             break;
         case 2:
+            userMenu(products, productCount, fileName, 2, shopdata, categories);
             break;
         case 0:
             std::cout << "Goodbye!\n";
