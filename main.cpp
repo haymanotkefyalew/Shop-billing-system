@@ -47,6 +47,8 @@ struct ShopData
 
 void loadProducts(std::vector<Product> &products, int &count, const char *file);
 void loadCategories(std::vector<std::string> &categories);
+
+void userMenu(std::vector<Product> &products, int &count, const char *file, int role, ShopData &data, std::vector<std::string> &categories);
 int main()
 {
     int productCount = 0;
