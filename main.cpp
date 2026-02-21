@@ -88,4 +88,23 @@ int main()
 void loadProducts(std::vector<Product> &products, int &count, const char *file)
 {
     std::ifstream fin(file);
+
+    fin >> count;
+
+    for (int i = 0; i < count; i++)
+    {
+        Product p;
+
+        getline(fin, p.id);
+        getline(fin, p.name);
+        getline(fin, p.category);
+        fin >> p.price;
+        fin >> p.quantity;
+        int st;
+        fin >> st;
+        p.status = static_cast<Status>(st);
+        fin.ignore();
+
+        products.push_back(p);
+    }
 }
