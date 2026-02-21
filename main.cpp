@@ -87,4 +87,5 @@ int main()
 
 void loadProducts(std::vector<Product> &products, int &count, const char *file)
 {
+    std::ifstream fin(file);
 }
