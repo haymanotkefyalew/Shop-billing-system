@@ -113,4 +113,10 @@ void loadCategories(std::vector<std::string> &categories)
 {
     std::ifstream fin("categories.txt");
     std::string cat;
+
+    while (getline(fin, cat))
+    {
+        categories.push_back(cat);
+    }
+    fin.close();
 }
