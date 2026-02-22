@@ -133,6 +133,36 @@ void userMenu(std::vector<Product> &products, int &count, const char *file, int 
             std::cout << "1. Add Product\n2. Edit Product\n3. Delete Product\n4. View Products\n5. Sort Products\n6. Search Products\n7. View Summary\n8. Change Password\n0. Back\n";
             std::cout << "Choice: ";
             std::cin >> choice;
+
+            switch (choice)
+            {
+            case 1:
+                std::cout << "\nAdd product\n";
+                break;
+
+            case 2:
+                std::cout << "\nEdit product\n";
+                break;
+            case 3:
+                std::cout << "\nDelete product\n";
+                break;
+            case 4:
+                std::cout << "\nView products\n";
+                break;
+            case 5:
+                std::cout << "\nSort products\n";
+                break;
+            case 6:
+                std::cout << "\nSearch products\n";
+                break;
+            case 7:
+                std::cout << "\nView summary\n";
+                break;
+            case 8:
+                std::cout << "\nChange password\n";
+                break;
+            default:
+            }
         }
         else
         {
