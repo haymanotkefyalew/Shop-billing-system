@@ -220,6 +220,9 @@ void deleteProduct(std::vector<Product> &products, int &count, const char *file)
             return;
         }
     }
+
+    products.erase(products.begin() + index);
+    count--;
 }
 void userMenu(std::vector<Product> &products, int &count, const char *file, int role, ShopData &data, std::vector<std::string> &categories)
 {
