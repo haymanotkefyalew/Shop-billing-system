@@ -50,6 +50,7 @@ void loadCategories(std::vector<std::string> &categories);
 
 void userMenu(std::vector<Product> &products, int &count, const char *file, int role, ShopData &data, std::vector<std::string> &categories);
 void addProduct(std::vector<Product> &products, int &count, const char *file, std::vector<std::string> &categories);
+void editProduct(std::vector<Product> &products, int count, const char *file);
 int main()
 {
     int productCount = 0;
@@ -140,6 +141,10 @@ void addProduct(std::vector<Product> &products, int &count, const char *file, st
     products.push_back(p);
     count++;
 }
+
+void editProduct(std::vector<Product> &products, int count, const char *file)
+{
+}
 void userMenu(std::vector<Product> &products, int &count, const char *file, int role, ShopData &data, std::vector<std::string> &categories)
 {
     int choice;
@@ -162,6 +167,7 @@ void userMenu(std::vector<Product> &products, int &count, const char *file, int 
 
             case 2:
                 std::cout << "\nEdit product\n";
+                editProduct(products, count, file);
                 break;
             case 3:
                 std::cout << "\nDelete product\n";
