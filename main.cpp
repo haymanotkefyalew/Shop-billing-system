@@ -120,3 +120,12 @@ void loadCategories(std::vector<std::string> &categories)
     }
     fin.close();
 }
+
+void userMenu(std::vector<Product> &products, int &count, const char *file, int role, ShopData &data, std::vector<std::string> &categories)
+{
+    int choice;
+    do
+    {
+
+    } while (choice != 0);
+}
