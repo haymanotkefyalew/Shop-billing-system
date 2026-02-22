@@ -127,5 +127,11 @@ void userMenu(std::vector<Product> &products, int &count, const char *file, int 
     do
     {
 
+        if (role == 1)
+        {
+        }
+        else
+        {
+        }
     } while (choice != 0);
 }
