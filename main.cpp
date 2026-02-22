@@ -201,7 +201,26 @@ void editProduct(std::vector<Product> &products, int count, const char *file)
     }
 }
 
-void deleteProduct(std::vector<Product> &products, int &count, const char *file) {}
+void deleteProduct(std::vector<Product> &products, int &count, const char *file)
+{
+    std::string tempId;
+    std::cout << "\nEnter the Id of the product to delete: ";
+    std::getline(std::cin, tempId);
+    int index;
+
+    for (int i = 0; i < count; i++)
+    {
+        if (products[i].id == tempId)
+        {
+            index = i;
+        }
+        else
+        {
+            std::cout << "\nProduct not found!\n";
+            return;
+        }
+    }
+}
 void userMenu(std::vector<Product> &products, int &count, const char *file, int role, ShopData &data, std::vector<std::string> &categories)
 {
     int choice;
