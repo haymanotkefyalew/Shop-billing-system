@@ -167,6 +167,37 @@ void editProduct(std::vector<Product> &products, int count, const char *file)
     std::cout << "1.Name   2.Id   3.Price   4.Quantity  5.all\n";
     int choice;
     std::cin >> choice;
+
+    switch (choice)
+    {
+    case 1:
+        std::cout << "\nNew name: ";
+        std::getline(std::cin, products[index].name);
+        break;
+    case 2:
+        std::cout << "\nNew Id: ";
+        std::getline(std::cin, products[index].id);
+        break;
+    case 3:
+        std::cout << "\nNew price: ";
+        std::cin >> products[index].price;
+        break;
+    case 4:
+        std::cout << "\nNew quantity: ";
+        std::cin >> products[index].quantity;
+        break;
+    case 5:
+        std::cout << "\nNew Id: ";
+        std::getline(std::cin, products[index].id);
+        std::cout << "\nNew name: ";
+        std::getline(std::cin, products[index].name);
+        std::cout << "\nNew price: ";
+        std::cin >> products[index].price;
+        std::cout << "\nNew quantity: ";
+        std::cin >> products[index].quantity;
+    default:
+        std::cout << "\nInvalid input\n";
+    }
 }
 void userMenu(std::vector<Product> &products, int &count, const char *file, int role, ShopData &data, std::vector<std::string> &categories)
 {
