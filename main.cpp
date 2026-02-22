@@ -158,8 +158,15 @@ void editProduct(std::vector<Product> &products, int count, const char *file)
         else
         {
             std::cout << "\nProduct not found!\n";
+            return;
         }
     }
+    std::cout << "Product: " << products[index].name << "\nCategory: " << products[index].category
+              << "\nPrice: " << products[index].price << " ETB\nAvailable Quantity: " << products[index].quantity << std::endl;
+    std::cout << "Property to edit.\n";
+    std::cout << "1.Name   2.Id   3.Price   4.Quantity  5.all\n";
+    int choice;
+    std::cin >> choice;
 }
 void userMenu(std::vector<Product> &products, int &count, const char *file, int role, ShopData &data, std::vector<std::string> &categories)
 {
