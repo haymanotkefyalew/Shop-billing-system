@@ -136,6 +136,9 @@ void addProduct(std::vector<Product> &products, int &count, const char *file, st
     std::cout << "\nEnter product Quantity: ";
     std::cin >> p.quantity;
     p.status = (p.quantity > 0) ? AVAILABLE : OUT_OF_STOCK;
+
+    products.push_back(p);
+    count++;
 }
 void userMenu(std::vector<Product> &products, int &count, const char *file, int role, ShopData &data, std::vector<std::string> &categories)
 {
