@@ -109,3 +109,8 @@ void loadProducts(std::vector<Product> &products, int &count, const char *file)
     }
     fin.close();
 }
+void loadCategories(std::vector<std::string> &categories)
+{
+    std::ifstream fin("categories.txt");
+    std::string cat;
+}
