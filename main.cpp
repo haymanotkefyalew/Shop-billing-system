@@ -53,7 +53,7 @@ void addProduct(std::vector<Product> &products, int &count, const char *file, st
 void editProduct(std::vector<Product> &products, int count, const char *file);
 void deleteProduct(std::vector<Product> &products, int &count, const char *file);
 void viewProducts(std::vector<Product> &products, int count, bool hideOut, const std::vector<std::string> &categories, const std::string &filterCategory = "all");
-void sortProducts(std::vector<Product> &products, int count, SortType type);
+void sortProducts(std::vector<Product> &products, int count);
 int main()
 {
     int productCount = 0;
@@ -241,11 +241,13 @@ void viewProducts(std::vector<Product> &products, int count, bool hideOut, const
     }
 }
 
-void sortProducts(std::vector<Product> &products, int count, SortType type)
+void sortProducts(std::vector<Product> &products, int count)
 {
 
-    std::cout << "Sort by: \n"
-              << "1. Name(A-Z) 2. Name(Z-A) 3. Price(cheap-expensive) 4. Price(expensive-cheap) 0. Back\n";
+    SortType type;
+    std::cout
+        << "Sort by: \n"
+        << "1. Name(A-Z) 2. Name(Z-A) 3. Price(cheap-expensive) 4. Price(expensive-cheap) 0. Back\n";
     int s;
     std::cin >> s;
     if (s == 1)
