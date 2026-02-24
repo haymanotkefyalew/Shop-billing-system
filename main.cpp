@@ -243,6 +243,22 @@ void viewProducts(std::vector<Product> &products, int count, bool hideOut, const
 
 void sortProducts(std::vector<Product> &products, int count, SortType type)
 {
+
+    std::cout << "Sort by: \n"
+              << "1. Name(A-Z) 2. Name(Z-A) 3. Price(cheap-expensive) 4. Price(expensive-cheap) 0. Back\n";
+    int s;
+    std::cin >> s;
+    if (s == 1)
+        type = NAME_A;
+    else if (s == 2)
+        type = NAME_D;
+    else if (s == 3)
+        type = PRICE_A;
+    else if (s == 4)
+        type = PRICE_D;
+    else
+        return;
+
     for (int i = 0; i < count - 1; i++)
         for (int j = i + 1; j < count; j++)
         {
