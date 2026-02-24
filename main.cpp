@@ -243,6 +243,20 @@ void viewProducts(std::vector<Product> &products, int count, bool hideOut, const
 
 void sortProducts(std::vector<Product> &products, int count, SortType type)
 {
+    for (int i = 0; i < count - 1; i++)
+        for (int j = i + 1; j < count; j++)
+        {
+            if ((type == NAME_A && products[i].name > products[j].name) ||
+                (type == PRICE_A && products[i].price > products[j].price))
+            {
+                std::swap(products[i], products[j]);
+            }
+            else if ((type == NAME_D && products[i].name < products[j].name) ||
+                     (type == PRICE_D && products[i].price < products[j].price))
+            {
+                std::swap(products[i], products[j]);
+            }
+        }
 }
 void userMenu(std::vector<Product> &products, int &count, const char *file, int role, ShopData &data, std::vector<std::string> &categories)
 {
