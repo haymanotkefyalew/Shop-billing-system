@@ -259,6 +259,7 @@ void userMenu(std::vector<Product> &products, int &count, const char *file, int 
                 break;
             case 4:
                 std::cout << "\nView products\n";
+                viewProducts(products, count, false, categories);
                 break;
             case 5:
                 std::cout << "\nSort products\n";
