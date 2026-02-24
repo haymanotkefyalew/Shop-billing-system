@@ -53,6 +53,7 @@ void addProduct(std::vector<Product> &products, int &count, const char *file, st
 void editProduct(std::vector<Product> &products, int count, const char *file);
 void deleteProduct(std::vector<Product> &products, int &count, const char *file);
 void viewProducts(std::vector<Product> &products, int count, bool hideOut, const std::vector<std::string> &categories, const std::string &filterCategory = "all");
+void sortProducts(std::vector<Product> &products, int count, SortType type);
 int main()
 {
     int productCount = 0;
@@ -238,6 +239,10 @@ void viewProducts(std::vector<Product> &products, int count, bool hideOut, const
                   << products[i].price << " "
                   << products[i].quantity << std::endl;
     }
+}
+
+void sortProducts(std::vector<Product> &products, int count, SortType type)
+{
 }
 void userMenu(std::vector<Product> &products, int &count, const char *file, int role, ShopData &data, std::vector<std::string> &categories)
 {
