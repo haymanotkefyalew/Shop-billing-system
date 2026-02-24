@@ -228,6 +228,14 @@ void deleteProduct(std::vector<Product> &products, int &count, const char *file)
 
 void viewProducts(std::vector<Product> &products, int count, bool hideOut, const std::vector<std::string> &categories, const std::string &filterCategory)
 {
+    for (int i = 0; i < count; i++)
+    {
+        std::cout << products[i].id << " "
+                  << products[i].name << " "
+                  << products[i].category << " "
+                  << products[i].price << " "
+                  << products[i].quantity << std::endl;
+    }
 }
 void userMenu(std::vector<Product> &products, int &count, const char *file, int role, ShopData &data, std::vector<std::string> &categories)
 {
