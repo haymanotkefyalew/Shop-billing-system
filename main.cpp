@@ -228,6 +228,8 @@ void deleteProduct(std::vector<Product> &products, int &count, const char *file)
 
 void viewProducts(std::vector<Product> &products, int count, bool hideOut, const std::vector<std::string> &categories, const std::string &filterCategory)
 {
+    std::cout << "\nID     Name            Category        Price(ETB)  Qty\n";
+    std::cout << "-----------------------------------------------------\n";
     for (int i = 0; i < count; i++)
     {
         std::cout << products[i].id << " "
