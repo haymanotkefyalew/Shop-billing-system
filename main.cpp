@@ -310,6 +310,7 @@ void userMenu(std::vector<Product> &products, int &count, const char *file, int 
                 break;
             case 5:
                 std::cout << "\nSort products\n";
+                sortProducts(products, count);
                 break;
             case 6:
                 std::cout << "\nSearch products\n";
