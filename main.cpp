@@ -75,7 +75,7 @@ int main()
     {
         std::cout << "\n=== SHOP BILLING SYSTEM ===\n";
         std::cout << "1. Seller\n2. Customer\n0. Exit\n";
-        std::cout << "Choose role: ";
+        choice = inputNumber("Choose role: ", 0);
         switch (choice)
         {
 
