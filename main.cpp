@@ -94,6 +94,10 @@ int main()
 
 int inputNumber(const std::string msg, int min)
 {
+    int x;
+    std::cout << msg;
+    std::cin >> x;
+    return x;
 }
 std::string inputString(const std::string msg)
 {
