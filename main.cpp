@@ -249,8 +249,7 @@ void editProduct(std::vector<Product> &products, int count, const char *file)
 void deleteProduct(std::vector<Product> &products, int &count, const char *file)
 {
     std::string tempId;
-    std::cout << "\nEnter the Id of the product to delete: ";
-    std::getline(std::cin, tempId);
+    tempId = inputString("\nEnter the Id of the product to delete: ");
     int index;
 
     for (int i = 0; i < count; i++)
