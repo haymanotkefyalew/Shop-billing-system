@@ -172,16 +172,11 @@ void loadCategories(std::vector<std::string> &categories)
 void addProduct(std::vector<Product> &products, int &count, const char *file, std::vector<std::string> &categories)
 {
     Product p;
-    std::cout << "\nEnter product Id: ";
-    std::getline(std::cin, p.id);
-    std::cout << "\nEnter product Name: ";
-    std::getline(std::cin, p.name);
-    std::cout << "\nEnter product Category: ";
-    std::getline(std::cin, p.category);
-    std::cout << "\nEnter product Price: ";
-    std::cin >> p.price;
-    std::cout << "\nEnter product Quantity: ";
-    std::cin >> p.quantity;
+    p.id = inputString("\nEnter product Id: ");
+    p.name = inputString("\nEnter product Name: ");
+    p.category = inputString("\nEnter product Category: ");
+    p.price = inputNumber("\nEnter product Price: ", 0);
+    p.quantity = inputNumber("\nEnter product Quantity: ", 0);
     p.status = (p.quantity > 0) ? AVAILABLE : OUT_OF_STOCK;
 
     products.push_back(p);
