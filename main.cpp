@@ -95,9 +95,23 @@ int main()
 int inputNumber(const std::string msg, int min)
 {
     int x;
-    std::cout << msg;
-    std::cin >> x;
-    return x;
+    while (true)
+    {
+
+        std::cout << msg;
+        std::cin >> x;
+        if (std::cin.fail() || x < min)
+        {
+            std::cin.clear();
+            std::cin.ignore(1000, '\n');
+            std::cout << "Invalid input. Try again.\n";
+        }
+        else
+        {
+            std::cin.ignore(1000, '\n');
+            return x;
+        }
+    }
 }
 std::string inputString(const std::string msg)
 {
