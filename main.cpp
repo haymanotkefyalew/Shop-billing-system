@@ -292,7 +292,7 @@ void sortProducts(std::vector<Product> &products, int count)
         << "Sort by: \n"
         << "1. Name(A-Z) 2. Name(Z-A) 3. Price(cheap-expensive) 4. Price(expensive-cheap) 0. Back\n";
     int s;
-    std::cin >> s;
+    s = inputNumber("Choose role: ", 0);
     if (s == 1)
         type = NAME_A;
     else if (s == 2)
