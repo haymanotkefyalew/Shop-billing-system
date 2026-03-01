@@ -93,6 +93,10 @@ int main()
 
 std::string inputString(const std::string msg)
 {
+    std::string s;
+    std::cout << msg;
+    std::getline(std::cin >> std::ws, s);
+    return s;
 }
 void loadProducts(std::vector<Product> &products, int &count, const char *file)
 {
