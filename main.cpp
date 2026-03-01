@@ -46,6 +46,7 @@ struct ShopData
     std::vector<ProductSales> productSummary;
 };
 
+std::string normalizer(const std::string txt);
 std::string inputString(const std::string msg);
 template <typename T>
 T inputNumber(const std::string msg, T min);
@@ -94,6 +95,9 @@ int main()
     return 0;
 }
 
+std::string normalizer(const std::string text)
+{
+}
 template <typename T>
 T inputNumber(const std::string msg, T min)
 {
