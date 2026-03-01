@@ -97,6 +97,11 @@ int main()
 
 std::string normalizer(const std::string text)
 {
+    std::string normalizedTxt;
+    for (char ch : text)
+    {
+        normalizedTxt += toupper(ch);
+    }
 }
 template <typename T>
 T inputNumber(const std::string msg, T min)
