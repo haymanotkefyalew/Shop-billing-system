@@ -45,6 +45,7 @@ struct ShopData
     std::vector<ProductSales> productSummary;
 };
 
+std::string inputString(const std::string msg);
 void loadProducts(std::vector<Product> &products, int &count, const char *file);
 void loadCategories(std::vector<std::string> &categories);
 
@@ -90,6 +91,9 @@ int main()
     return 0;
 }
 
+std::string inputString(const std::string msg)
+{
+}
 void loadProducts(std::vector<Product> &products, int &count, const char *file)
 {
     std::ifstream fin(file);
