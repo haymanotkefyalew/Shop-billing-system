@@ -329,8 +329,7 @@ void userMenu(std::vector<Product> &products, int &count, const char *file, int 
         {
             std::cout << "\n--- SELLER MENU ---\n";
             std::cout << "1. Add Product\n2. Edit Product\n3. Delete Product\n4. View Products\n5. Sort Products\n6. Search Products\n7. View Summary\n8. Change Password\n0. Back\n";
-            std::cout << "Choice: ";
-            std::cin >> choice;
+            choice = inputNumber("Choose role: ", 0);
 
             switch (choice)
             {
