@@ -46,6 +46,7 @@ struct ShopData
 };
 
 std::string inputString(const std::string msg);
+int inputNumber(const std::string msg, int min);
 void loadProducts(std::vector<Product> &products, int &count, const char *file);
 void loadCategories(std::vector<std::string> &categories);
 
@@ -91,6 +92,9 @@ int main()
     return 0;
 }
 
+int inputNumber(const std::string msg, int min)
+{
+}
 std::string inputString(const std::string msg)
 {
     std::string s;
