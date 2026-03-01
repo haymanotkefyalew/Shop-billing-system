@@ -191,8 +191,7 @@ void addProduct(std::vector<Product> &products, int &count, const char *file, st
 void editProduct(std::vector<Product> &products, int count, const char *file)
 {
     std::string tempId;
-    std::cout << "\nEnter the Id of the product to edit: ";
-    std::getline(std::cin, tempId);
+    tempId = inputString("\nEnter the Id of the product to edit: ");
     int index;
 
     for (int i = 0; i < count; i++)
@@ -212,35 +211,28 @@ void editProduct(std::vector<Product> &products, int count, const char *file)
     std::cout << "Property to edit.\n";
     std::cout << "1.Name   2.Id   3.Price   4.Quantity  5.all\n";
     int choice;
-    std::cin >> choice;
+    choice = inputNumber("Enter your choice:", 0);
 
     switch (choice)
     {
     case 1:
-        std::cout << "\nNew name: ";
-        std::getline(std::cin, products[index].name);
+        products[index].name = inputString("\nNew name: ");
         break;
     case 2:
-        std::cout << "\nNew Id: ";
-        std::getline(std::cin, products[index].id);
+
+        products[index].id = inputString("\nNew Id: ");
         break;
     case 3:
-        std::cout << "\nNew price: ";
-        std::cin >> products[index].price;
+        products[index].price = inputNumber("\nNew price: ", 0);
         break;
     case 4:
-        std::cout << "\nNew quantity: ";
-        std::cin >> products[index].quantity;
+        products[index].quantity = inputNumber("\nNew quantity: ", 0);
         break;
     case 5:
-        std::cout << "\nNew Id: ";
-        std::getline(std::cin, products[index].id);
-        std::cout << "\nNew name: ";
-        std::getline(std::cin, products[index].name);
-        std::cout << "\nNew price: ";
-        std::cin >> products[index].price;
-        std::cout << "\nNew quantity: ";
-        std::cin >> products[index].quantity;
+        products[index].id = inputString("\nNew Id: ");
+        products[index].name = inputString("\nNew name: ");
+        products[index].price = inputNumber("\nNew price: ", 0);
+        products[index].quantity = inputNumber("\nNew quantity: ", 0);
     default:
         std::cout << "\nInvalid input\n";
     }
