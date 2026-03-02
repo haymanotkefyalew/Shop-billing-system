@@ -210,7 +210,32 @@ void addProduct(std::vector<Product> &products, int &count, const char *file, st
         std::cout << "NOTICE!! Product with the same ID exists.\n";
     } while (true);
     p.name = inputString("\nEnter product Name: ");
-    p.category = inputString("\nEnter product Category: ");
+
+    std::cout << "Available categories:\n";
+    int idx = 1;
+    std::vector<std::string> catList(categories.begin(), categories.end());
+    for (const auto &c : catList)
+        std::cout << idx++ << ". " << c << std::endl;
+    std::cout << idx << ". Add new category\n";
+    int catChoice = inputNumber<int>("Choose category: ", 1);
+    if (catChoice == idx)
+    {
+        p.category = inputString("Enter new category: ");
+        p.category = normalizer(p.category);
+        categories.push_back(p.category);
+        std::ofstream fout("categories.txt", std::ios::app);
+        if (!fout)
+        {
+            std::cerr << "Failed to open categories file.\n";
+        }
+        else
+            fout << p.category << std::endl;
+        fout.close();
+    }
+    else
+    {
+        p.category = catList[catChoice - 1];
+    }
     p.price = inputNumber("\nEnter product Price: ", 0);
     p.quantity = inputNumber("\nEnter product Quantity: ", 0);
     p.status = (p.quantity > 0) ? AVAILABLE : OUT_OF_STOCK;
