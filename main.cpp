@@ -255,18 +255,6 @@ void editProduct(std::vector<Product> &products, int count, const char *file)
         return;
     }
 
-    for (int i = 0; i < count; i++)
-    {
-        if (products[i].id == tempId)
-        {
-            index = i;
-        }
-        else
-        {
-            std::cout << "\nProduct not found!\n";
-            return;
-        }
-    }
     std::cout << "Product: " << products[index].name << "\nCategory: " << products[index].category
               << "\nPrice: " << products[index].price << " ETB\nAvailable Quantity: " << products[index].quantity << std::endl;
     std::cout << "Property to edit.\n";
