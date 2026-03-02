@@ -198,6 +198,17 @@ void loadCategories(std::vector<std::string> &categories)
 void addProduct(std::vector<Product> &products, int &count, const char *file, std::vector<std::string> &categories)
 {
     Product p;
+    std::string tempId;
+    do
+    {
+        tempId = inputString("Enter product ID: ");
+        if (searchById<Product>(products, count, tempId) == -1)
+        {
+            p.id = tempId;
+            break;
+        }
+        std::cout << "NOTICE!! Product with the same ID exists.\n";
+    } while (true);
     p.id = inputString("\nEnter product Id: ");
     p.name = inputString("\nEnter product Name: ");
     p.category = inputString("\nEnter product Category: ");
