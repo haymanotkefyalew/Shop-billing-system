@@ -248,7 +248,12 @@ void editProduct(std::vector<Product> &products, int count, const char *file)
 {
     std::string tempId;
     tempId = inputString("\nEnter the Id of the product to edit: ");
-    int index;
+    int index = searchById<Product>(products, count, tempId);
+    if (index == -1)
+    {
+        std::cout << "Product not found.\n";
+        return;
+    }
 
     for (int i = 0; i < count; i++)
     {
