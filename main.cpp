@@ -332,6 +332,10 @@ void viewProducts(std::vector<Product> &products, int count, bool hideOut, const
     std::cout << "-----------------------------------------------------\n";
     for (int i = 0; i < count; i++)
     {
+        if ((hideOut && products[i].status == OUT_OF_STOCK))
+            continue;
+        if (filterCategory != "all" && normalizer(products[i].category) != normalizer(filterCategory))
+            continue;
         std::cout << products[i].id << " "
                   << products[i].name << " "
                   << products[i].category << " "
