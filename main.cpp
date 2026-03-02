@@ -290,20 +290,12 @@ void editProduct(std::vector<Product> &products, int count, const char *file)
 void deleteProduct(std::vector<Product> &products, int &count, const char *file)
 {
     std::string tempId;
-    tempId = inputString("\nEnter the Id of the product to delete: ");
-    int index;
-
-    for (int i = 0; i < count; i++)
+    tempId = inputString("\nEnter the Id of the product to edit: ");
+    int index = searchById<Product>(products, count, tempId);
+    if (index == -1)
     {
-        if (products[i].id == tempId)
-        {
-            index = i;
-        }
-        else
-        {
-            std::cout << "\nProduct not found!\n";
-            return;
-        }
+        std::cout << "Product not found.\n";
+        return;
     }
 
     products.erase(products.begin() + index);
