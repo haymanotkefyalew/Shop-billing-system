@@ -60,6 +60,9 @@ void deleteProduct(std::vector<Product> &products, int &count, const char *file)
 void viewProducts(std::vector<Product> &products, int count, bool hideOut, const std::vector<std::string> &categories, const std::string &filterCategory = "all");
 void sortProducts(std::vector<Product> &products, int count);
 void searchProducts(std::vector<Product> &products, int count, int role);
+
+template <typename T>
+int searchById(std::vector<T> &items, int count, const std::string &id);
 int main()
 {
     int productCount = 0;
@@ -350,6 +353,10 @@ void searchProducts(std::vector<Product> &products, int count, int role)
     }
     if (!found)
         std::cout << "No products found.\n";
+}
+template <typename T>
+int searchById(std::vector<T> &items, int count, const std::string &id)
+{
 }
 void userMenu(std::vector<Product> &products, int &count, const char *file, int role, ShopData &data, std::vector<std::string> &categories)
 {
