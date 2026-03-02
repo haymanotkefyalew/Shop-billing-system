@@ -137,7 +137,16 @@ std::string inputString(const std::string msg)
 void loadProducts(std::vector<Product> &products, int &count, const char *file)
 {
     std::ifstream fin(file);
-
+    static bool opened = false;
+    if (!fin && opened)
+    {
+        std::cerr << "Failed to open product file.\n";
+    }
+    else if (!fin)
+    {
+        opened = true;
+        return;
+    }
     fin >> count;
 
     for (int i = 0; i < count; i++)
