@@ -313,6 +313,21 @@ void deleteProduct(std::vector<Product> &products, int &count, const char *file)
 
 void viewProducts(std::vector<Product> &products, int count, bool hideOut, const std::vector<std::string> &categories, const std::string &filterCategory)
 {
+    bool hasProduct = false;
+    for (int i = 0; i < count; i++)
+    {
+        if ((!hideOut || products[i].status == AVAILABLE) &&
+            (filterCategory == "all" || normalizer(products[i].category) == normalizer(filterCategory)))
+        {
+            hasProduct = true;
+            break;
+        }
+    }
+    if (!hasProduct)
+    {
+        std::cout << "\nNo products available.\n";
+        return;
+    }
     std::cout << "\nID     Name            Category        Price(ETB)  Qty\n";
     std::cout << "-----------------------------------------------------\n";
     for (int i = 0; i < count; i++)
