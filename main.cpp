@@ -148,6 +148,8 @@ void loadProducts(std::vector<Product> &products, int &count, const char *file)
         return;
     }
     fin >> count;
+    fin.ignore();
+    products.clear();
 
     for (int i = 0; i < count; i++)
     {
@@ -170,6 +172,17 @@ void loadProducts(std::vector<Product> &products, int &count, const char *file)
 void loadCategories(std::vector<std::string> &categories)
 {
     std::ifstream fin("categories.txt");
+    static bool opened = false;
+    if (!fin && opened)
+    {
+        std::cerr << "Failed to open categories file.\n";
+        return;
+    }
+    else if (!fin)
+    {
+        opened = true;
+        return;
+    }
     std::string cat;
 
     while (getline(fin, cat))
