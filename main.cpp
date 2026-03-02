@@ -451,9 +451,31 @@ void userMenu(std::vector<Product> &products, int &count, const char *file, int 
                 deleteProduct(products, count, file);
                 break;
             case 4:
+            {
                 std::cout << "\nView products\n";
-                viewProducts(products, count, false, categories);
+                std::cout << "Filter by category:\n"
+                          << "1. All\n";
+                int idx = 2;
+                std::vector<std::string> catList(categories.begin(), categories.end());
+                for (const auto &c : catList)
+                    std::cout << idx++ << ". " << c << std::endl;
+                while (true)
+                {
+                    int cChoice = inputNumber<int>("Choose: ", 1);
+                    if (cChoice >= idx)
+                    {
+                        std::cout << "Invalid Input!\n";
+                        continue;
+                    }
+                    else
+                    {
+                        std::string selCat = (cChoice == 1) ? "all" : catList[cChoice - 2];
+                        viewProducts(products, count, false, categories, selCat);
+                        break;
+                    }
+                }
                 break;
+            }
             case 5:
                 std::cout << "\nSort products\n";
                 sortProducts(products, count);
