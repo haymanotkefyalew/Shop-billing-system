@@ -59,6 +59,7 @@ void editProduct(std::vector<Product> &products, int count, const char *file);
 void deleteProduct(std::vector<Product> &products, int &count, const char *file);
 void viewProducts(std::vector<Product> &products, int count, bool hideOut, const std::vector<std::string> &categories, const std::string &filterCategory = "all");
 void sortProducts(std::vector<Product> &products, int count);
+void searchProducts(std::vector<Product> &products, int count, int role);
 int main()
 {
     int productCount = 0;
@@ -304,6 +305,9 @@ void sortProducts(std::vector<Product> &products, int count)
                 std::swap(products[i], products[j]);
             }
         }
+}
+void searchProducts(std::vector<Product> &products, int count, int role)
+{
 }
 void userMenu(std::vector<Product> &products, int &count, const char *file, int role, ShopData &data, std::vector<std::string> &categories)
 {
