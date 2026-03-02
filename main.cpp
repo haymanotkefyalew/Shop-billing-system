@@ -412,12 +412,25 @@ int searchById(std::vector<T> &items, int count, const std::string &id)
 }
 void userMenu(std::vector<Product> &products, int &count, const char *file, int role, ShopData &data, std::vector<std::string> &categories)
 {
+    static int pass = 1234;
+    static bool flag = true;
     int choice;
     do
     {
 
         if (role == 1)
         {
+            while (flag)
+            {
+                int password = inputNumber<int>("Enter Password to continue: ", 0);
+                if (password == pass)
+                {
+                    flag = false;
+                    break;
+                }
+                else
+                    std::cout << "Wrong password!\n";
+            }
             std::cout << "\n--- SELLER MENU ---\n";
             std::cout << "1. Add Product\n2. Edit Product\n3. Delete Product\n4. View Products\n5. Sort Products\n6. Search Products\n7. View Summary\n8. Change Password\n0. Back\n";
             choice = inputNumber("Choose role: ", 0);
