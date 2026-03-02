@@ -298,6 +298,15 @@ void deleteProduct(std::vector<Product> &products, int &count, const char *file)
         return;
     }
 
+    char confirm;
+    std::cout << "Are you sure you want to delete this product? (Y/N): ";
+    std::cin >> confirm;
+    std::cin.ignore();
+    if (confirm != 'Y' && confirm != 'y')
+    {
+        std::cout << "Action canceled.\n";
+        return;
+    }
     products.erase(products.begin() + index);
     count--;
 }
