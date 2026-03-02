@@ -308,6 +308,26 @@ void sortProducts(std::vector<Product> &products, int count)
 }
 void searchProducts(std::vector<Product> &products, int count, int role)
 {
+    bool found = false;
+    std::string key = inputString("Enter product name or ID to search: ");
+    std::cout << "\nID   Name            Category        Price(ETB)  Qty\n";
+    std::cout << "-----------------------------------------------------\n";
+
+    for (int i = 0; i < count; i++)
+    {
+        if (normalizer(products[i].id).find(normalizer(key)) != std::string::npos ||
+            normalizer(products[i].name).find(normalizer(key)) != std::string::npos)
+        {
+            std::cout << products[i].id << " "
+                      << products[i].name << " "
+                      << products[i].category << " "
+                      << products[i].price << " "
+                      << products[i].quantity << std::endl;
+            found = true;
+        }
+    }
+    if (!found)
+        std::cout << "No products found.\n";
 }
 void userMenu(std::vector<Product> &products, int &count, const char *file, int role, ShopData &data, std::vector<std::string> &categories)
 {
