@@ -209,7 +209,6 @@ void addProduct(std::vector<Product> &products, int &count, const char *file, st
         }
         std::cout << "NOTICE!! Product with the same ID exists.\n";
     } while (true);
-    p.id = inputString("\nEnter product Id: ");
     p.name = inputString("\nEnter product Name: ");
     p.category = inputString("\nEnter product Category: ");
     p.price = inputNumber("\nEnter product Price: ", 0);
