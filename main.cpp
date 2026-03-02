@@ -366,6 +366,7 @@ void userMenu(std::vector<Product> &products, int &count, const char *file, int 
                 break;
             case 6:
                 std::cout << "\nSearch products\n";
+                searchProducts(products, count, role);
                 break;
             case 7:
                 std::cout << "\nView summary\n";
