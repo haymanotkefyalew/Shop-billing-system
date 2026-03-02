@@ -357,6 +357,10 @@ void searchProducts(std::vector<Product> &products, int count, int role)
 template <typename T>
 int searchById(std::vector<T> &items, int count, const std::string &id)
 {
+    for (int i = 0; i < count; i++)
+        if (normalizer(items[i].id) == normalizer(id))
+            return i;
+    return -1;
 }
 void userMenu(std::vector<Product> &products, int &count, const char *file, int role, ShopData &data, std::vector<std::string> &categories)
 {
