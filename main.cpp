@@ -65,6 +65,7 @@ template <typename T>
 int searchById(std::vector<T> &items, int count, const std::string &id);
 
 void buyProduct(std::vector<Product> &products, int count, const char *file, ShopData &data, const std::vector<std::string> &categories);
+
 int main()
 {
     int productCount = 0;
@@ -531,6 +532,7 @@ void userMenu(std::vector<Product> &products, int &count, const char *file, int 
                 break;
             case 8:
                 std::cout << "\nChange password\n";
+
                 int password = inputNumber<int>("Enter Old Password: ", 1000);
                 if (password == pass)
                 {
@@ -550,6 +552,7 @@ void userMenu(std::vector<Product> &products, int &count, const char *file, int 
         }
         else
         {
+
             std::cout << "\n--- CUSTOMER MENU ---\n";
             std::cout << "1. View Products\n2. Sort Products\n3. Buy Product\n4. Search Products\n0. Back\n";
             choice = inputNumber<int>("Choice: ", 0);
