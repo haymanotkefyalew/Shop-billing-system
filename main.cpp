@@ -292,6 +292,8 @@ void editProduct(std::vector<Product> &products, int count, const char *file)
     default:
         std::cout << "\nInvalid input\n";
     }
+
+    saveProducts(products, count, file);
 }
 
 void deleteProduct(std::vector<Product> &products, int &count, const char *file)
