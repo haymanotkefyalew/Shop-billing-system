@@ -472,6 +472,12 @@ void buyProduct(std::vector<Product> &products, int count, const char *file, Sho
 
 void saveProducts(std::vector<Product> &products, int count, const char *file)
 {
+    std::ofstream fout(file);
+    if (!fout)
+    {
+        std::cerr << "Failed to open product file.\n";
+        return;
+    }
 }
 
 void userMenu(std::vector<Product> &products, int &count, const char *file, int role, ShopData &data, std::vector<std::string> &categories)
