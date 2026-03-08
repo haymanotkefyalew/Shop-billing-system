@@ -452,6 +452,20 @@ void buyProduct(std::vector<Product> &products, int count, const char *file, Sho
         std::cout << "Not enough stock.\n";
         return;
     }
+
+    char confirm;
+    std::cout << "Confirm purchase? (Y/N): ";
+    std::cin >> confirm;
+    std::cin.ignore();
+    if (confirm != 'Y' && confirm != 'y')
+    {
+        std::cout << "Order canceled.\n";
+        return;
+    }
+
+    products[i].quantity -= qty;
+    if (products[i].quantity == 0)
+        products[i].status = OUT_OF_STOCK;
 }
 void userMenu(std::vector<Product> &products, int &count, const char *file, int role, ShopData &data, std::vector<std::string> &categories)
 {
