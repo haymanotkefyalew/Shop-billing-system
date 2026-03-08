@@ -66,6 +66,8 @@ int searchById(std::vector<T> &items, int count, const std::string &id);
 
 void buyProduct(std::vector<Product> &products, int count, const char *file, ShopData &data, const std::vector<std::string> &categories);
 
+void saveProducts(std::vector<Product> &products, int count, const char *file);
+
 int main()
 {
     int productCount = 0;
@@ -467,6 +469,11 @@ void buyProduct(std::vector<Product> &products, int count, const char *file, Sho
     if (products[i].quantity == 0)
         products[i].status = OUT_OF_STOCK;
 }
+
+void saveProducts(std::vector<Product> &products, int count, const char *file)
+{
+}
+
 void userMenu(std::vector<Product> &products, int &count, const char *file, int role, ShopData &data, std::vector<std::string> &categories)
 {
     static int pass = 1234;
