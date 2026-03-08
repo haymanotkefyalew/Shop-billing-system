@@ -247,6 +247,8 @@ void addProduct(std::vector<Product> &products, int &count, const char *file, st
 
     products.push_back(p);
     count++;
+
+    saveProducts(products, count, file);
 }
 
 void editProduct(std::vector<Product> &products, int count, const char *file)
