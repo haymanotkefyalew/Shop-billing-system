@@ -592,6 +592,7 @@ void userMenu(std::vector<Product> &products, int &count, const char *file, int 
                 sortProducts(products, count);
                 break;
             case 3:
+                buyProduct(products, count, file, data, categories);
                 break;
             case 4:
                 searchProducts(products, count, role);
