@@ -474,6 +474,8 @@ void buyProduct(std::vector<Product> &products, int count, const char *file, Sho
     products[i].quantity -= qty;
     if (products[i].quantity == 0)
         products[i].status = OUT_OF_STOCK;
+
+    saveProducts(products, count, file);
 }
 
 void saveProducts(std::vector<Product> &products, int count, const char *file)
