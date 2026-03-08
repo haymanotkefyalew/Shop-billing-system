@@ -488,6 +488,7 @@ void saveProducts(std::vector<Product> &products, int count, const char *file)
              << products[i].quantity << "\n"
              << products[i].status << "\n";
     }
+    fout.close();
 }
 
 void userMenu(std::vector<Product> &products, int &count, const char *file, int role, ShopData &data, std::vector<std::string> &categories)
