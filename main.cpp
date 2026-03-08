@@ -478,6 +478,16 @@ void saveProducts(std::vector<Product> &products, int count, const char *file)
         std::cerr << "Failed to open product file.\n";
         return;
     }
+    fout << count << "\n";
+    for (int i = 0; i < count; i++)
+    {
+        fout << products[i].id << "\n"
+             << products[i].name << "\n"
+             << products[i].category << "\n"
+             << products[i].price << "\n"
+             << products[i].quantity << "\n"
+             << products[i].status << "\n";
+    }
 }
 
 void userMenu(std::vector<Product> &products, int &count, const char *file, int role, ShopData &data, std::vector<std::string> &categories)
