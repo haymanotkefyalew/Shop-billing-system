@@ -318,6 +318,8 @@ void deleteProduct(std::vector<Product> &products, int &count, const char *file)
     }
     products.erase(products.begin() + index);
     count--;
+
+    saveProducts(products, count, file);
 }
 
 void viewProducts(std::vector<Product> &products, int count, bool hideOut, const std::vector<std::string> &categories, const std::string &filterCategory)
