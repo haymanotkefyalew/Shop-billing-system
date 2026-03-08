@@ -531,6 +531,7 @@ void userMenu(std::vector<Product> &products, int &count, const char *file, int 
                 std::cout << "\nView summary\n";
                 break;
             case 8:
+            {
                 std::cout << "\nChange password\n";
 
                 int password = inputNumber<int>("Enter Old Password: ", 1000);
@@ -542,7 +543,8 @@ void userMenu(std::vector<Product> &products, int &count, const char *file, int 
                 }
                 else
                     std::cout << "Wrong password!\n";
-                break;
+            }
+            break;
             case 0:
                 flag = true;
                 break;
@@ -560,6 +562,7 @@ void userMenu(std::vector<Product> &products, int &count, const char *file, int 
             switch (choice)
             {
             case 1:
+            {
                 std::cout << "Filter by category:\n"
                           << "1. All\n";
                 int idx = 2;
@@ -583,7 +586,8 @@ void userMenu(std::vector<Product> &products, int &count, const char *file, int 
                         break;
                     }
                 }
-                break;
+            }
+            break;
             case 2:
                 sortProducts(products, count);
                 break;
