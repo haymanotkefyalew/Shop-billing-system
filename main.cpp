@@ -479,6 +479,7 @@ void buyProduct(std::vector<Product> &products, int count, const char *file, Sho
         products[i].status = OUT_OF_STOCK;
 
     saveProducts(products, count, file);
+    generateReceipt(products[i], qty, data, count);
 }
 
 void saveProducts(std::vector<Product> &products, int count, const char *file)
