@@ -559,6 +559,17 @@ void generateReceipt(const Product &products, int quantity, ShopData &data, cons
         std::cerr << "Failed to open the receipt file.\n";
         return;
     }
+    {
+        fout << "Receipt ID: " << receiptID << "\n";
+        fout << "Time: " << dt;
+        fout << "Product: " << products.name << "\n";
+        fout << "Quantity: " << quantity << "\n";
+        fout << "Price per unit: " << products.price << " ETB\n";
+        fout << "Subtotal: " << subtotal << " ETB\n";
+        fout << "Tax: " << tax << " ETB\n";
+        fout << "Total: " << total << " ETB\n";
+        fout << "----------------------\n";
+    }
 }
 
 void userMenu(std::vector<Product> &products, int &count, const char *file, int role, ShopData &data, std::vector<std::string> &categories)
