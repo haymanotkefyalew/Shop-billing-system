@@ -511,6 +511,18 @@ void generateReceipt(const Product &products, int quantity, ShopData &data, cons
                             std::to_string(data.receiptCount);
     time_t now = time(0);
     char *dt = ctime(&now);
+
+    double subtotal = quantity * products.price;
+    double tax = subtotal * 0.15;
+    double total = subtotal + tax;
+
+    data.totalItemsSold += quantity;
+    data.totalSales += subtotal;
+    data.totalTax += tax;
+
+    int idx = searchById<ProductSales>(data.productSummary,
+                                       static_cast<int>(data.productSummary.size()),
+                                       products.id);
 }
 
 void userMenu(std::vector<Product> &products, int &count, const char *file, int role, ShopData &data, std::vector<std::string> &categories)
