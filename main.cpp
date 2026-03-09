@@ -674,6 +674,7 @@ void userMenu(std::vector<Product> &products, int &count, const char *file, int 
                 break;
             case 7:
                 std::cout << "\nView summary\n";
+                viewSellerSummary(data, count);
                 break;
             case 8:
             {
