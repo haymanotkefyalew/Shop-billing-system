@@ -554,6 +554,11 @@ void generateReceipt(const Product &products, int quantity, ShopData &data, cons
     }
 
     std::ofstream fout("receipts.txt", std::ios::app);
+    if (!fout)
+    {
+        std::cerr << "Failed to open the receipt file.\n";
+        return;
+    }
 }
 
 void userMenu(std::vector<Product> &products, int &count, const char *file, int role, ShopData &data, std::vector<std::string> &categories)
