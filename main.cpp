@@ -71,6 +71,7 @@ void generateReceipt(const Product &products, int quantity, ShopData &data, cons
 
 void saveProducts(std::vector<Product> &products, int count, const char *file);
 
+void viewSellerSummary(const ShopData &data, int productCount);
 int main()
 {
     int productCount = 0;
@@ -574,6 +575,7 @@ void generateReceipt(const Product &products, int quantity, ShopData &data, cons
     fout.close();
 }
 
+void viewSellerSummary(const ShopData &data, int productCount) {}
 void userMenu(std::vector<Product> &products, int &count, const char *file, int role, ShopData &data, std::vector<std::string> &categories)
 {
     static int pass = 1234;
