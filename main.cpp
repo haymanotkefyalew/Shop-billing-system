@@ -575,7 +575,11 @@ void generateReceipt(const Product &products, int quantity, ShopData &data, cons
     fout.close();
 }
 
-void viewSellerSummary(const ShopData &data, int productCount) {}
+void viewSellerSummary(const ShopData &data, int productCount)
+{
+    time_t now = time(0);
+    char *dt = ctime(&now);
+}
 void userMenu(std::vector<Product> &products, int &count, const char *file, int role, ShopData &data, std::vector<std::string> &categories)
 {
     static int pass = 1234;
