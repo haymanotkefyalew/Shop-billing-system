@@ -509,6 +509,8 @@ void generateReceipt(const Product &products, int quantity, ShopData &data, cons
     std::string receiptID = std::string("R") +
                             std::string(6 - std::to_string(data.receiptCount).length(), '0') +
                             std::to_string(data.receiptCount);
+    time_t now = time(0);
+    char *dt = ctime(&now);
 }
 
 void userMenu(std::vector<Product> &products, int &count, const char *file, int role, ShopData &data, std::vector<std::string> &categories)
