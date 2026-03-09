@@ -523,6 +523,22 @@ void generateReceipt(const Product &products, int quantity, ShopData &data, cons
     int idx = searchById<ProductSales>(data.productSummary,
                                        static_cast<int>(data.productSummary.size()),
                                        products.id);
+    if (idx == -1)
+    {
+        ProductSales ps;
+        ps.id = products.id;
+        ps.name = products.name;
+        ps.unitsSold = quantity;
+        ps.sales = subtotal;
+        ps.tax = tax;
+        data.productSummary.push_back(ps);
+    }
+    else
+    {
+        data.productSummary[idx].unitsSold += quantity;
+        data.productSummary[idx].sales += subtotal;
+        data.productSummary[idx].tax += tax;
+    }
 }
 
 void userMenu(std::vector<Product> &products, int &count, const char *file, int role, ShopData &data, std::vector<std::string> &categories)
