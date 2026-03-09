@@ -539,6 +539,19 @@ void generateReceipt(const Product &products, int quantity, ShopData &data, cons
         data.productSummary[idx].sales += subtotal;
         data.productSummary[idx].tax += tax;
     }
+
+    {
+        std::cout << "\n=== RECEIPT ===\n";
+        std::cout << "Receipt ID: " << receiptID << std::endl;
+        std::cout << "Time: " << dt;
+        std::cout << "Product: " << products.name << std::endl;
+        std::cout << "Quantity: " << quantity << std::endl;
+        std::cout << "Price per unit: " << products.price << " ETB" << std::endl;
+        std::cout << "Subtotal: " << subtotal << " ETB" << std::endl;
+        std::cout << "Tax: " << tax << " ETB" << std::endl;
+        std::cout << "Total: " << total << " ETB" << std::endl;
+        std::cout << "================\n";
+    }
 }
 
 void userMenu(std::vector<Product> &products, int &count, const char *file, int role, ShopData &data, std::vector<std::string> &categories)
