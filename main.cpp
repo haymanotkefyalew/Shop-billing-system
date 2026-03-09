@@ -579,6 +579,20 @@ void viewSellerSummary(const ShopData &data, int productCount)
 {
     time_t now = time(0);
     char *dt = ctime(&now);
+
+    std::cout << "\n Time: " << dt;
+    std::cout << "\n=== SELLER SUMMARY PER PRODUCT ===\n";
+    std::cout << "ID   Name            Units Sold   Sales(ETB)   Tax(ETB)\n";
+    std::cout << "------------------------------------------------------\n";
+
+    for (const auto &ps : data.productSummary)
+    {
+        std::cout << ps.id << " "
+                  << ps.name << " "
+                  << ps.unitsSold << " "
+                  << ps.sales << " "
+                  << ps.tax << std::endl;
+    }
 }
 void userMenu(std::vector<Product> &products, int &count, const char *file, int role, ShopData &data, std::vector<std::string> &categories)
 {
