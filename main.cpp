@@ -66,6 +66,8 @@ int searchById(std::vector<T> &items, int count, const std::string &id);
 
 void buyProduct(std::vector<Product> &products, int count, const char *file, ShopData &data, const std::vector<std::string> &categories);
 
+void generateReceipt(const Product &products, int quantity, ShopData &data, const int count);
+
 void saveProducts(std::vector<Product> &products, int count, const char *file);
 
 int main()
@@ -497,6 +499,10 @@ void saveProducts(std::vector<Product> &products, int count, const char *file)
              << products[i].status << "\n";
     }
     fout.close();
+}
+
+void generateReceipt(const Product &products, int quantity, ShopData &data, const int count)
+{
 }
 
 void userMenu(std::vector<Product> &products, int &count, const char *file, int role, ShopData &data, std::vector<std::string> &categories)
