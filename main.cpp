@@ -552,6 +552,8 @@ void generateReceipt(const Product &products, int quantity, ShopData &data, cons
         std::cout << "Total: " << total << " ETB" << std::endl;
         std::cout << "================\n";
     }
+
+    std::ofstream fout("receipts.txt", std::ios::app);
 }
 
 void userMenu(std::vector<Product> &products, int &count, const char *file, int role, ShopData &data, std::vector<std::string> &categories)
