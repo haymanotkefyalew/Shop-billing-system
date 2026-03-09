@@ -593,6 +593,10 @@ void viewSellerSummary(const ShopData &data, int productCount)
                   << ps.sales << " "
                   << ps.tax << std::endl;
     }
+    std::cout << "Total Items Sold: " << data.totalItemsSold << std::endl;
+    std::cout << "Total Sales: " << data.totalSales << " ETB\n";
+    std::cout << "Total Tax Collected: " << data.totalTax << " ETB\n";
+    std::cout << "Total: " << data.totalTax + data.totalSales << " ETB\n";
 }
 void userMenu(std::vector<Product> &products, int &count, const char *file, int role, ShopData &data, std::vector<std::string> &categories)
 {
