@@ -408,10 +408,10 @@ void searchProducts(std::vector<Product> &products, int count, int role)
             normalizer(products[i].name).find(normalizer(key)) != std::string::npos)
         {
             std::cout << products[i].id << " "
-                      << products[i].name << " "
-                      << products[i].category << " "
-                      << products[i].price << " "
-                      << products[i].quantity << std::endl;
+                      << std::setw(10) << products[i].name << " "
+                      << std::setw(14) << products[i].category << " "
+                      << std::setw(10) << std::fixed << std::setprecision(2) << products[i].price << " "
+                      << std::setw(4) << products[i].quantity << std::endl;
             found = true;
         }
     }
