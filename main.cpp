@@ -6,6 +6,11 @@
 #include <ctime>
 #include <iomanip>
 
+#define RESET "\033[0m"
+#define RED "\033[31m"
+#define GREEN "\033[32m"
+#define BLUE "\033[94m"
+#define YELLOW "\033[93m"
 enum Status
 {
     AVAILABLE,
