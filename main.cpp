@@ -92,7 +92,8 @@ int main()
     int choice;
     do
     {
-        std::cout << "\n=== SHOP BILLING SYSTEM ===\n";
+        std::cout << BLUE << "\n=== SHOP BILLING SYSTEM ===\n"
+                  << RESET;
         std::cout << "1. Seller\n2. Customer\n0. Exit\n";
         choice = inputNumber("Choose role: ", 0);
         switch (choice)
@@ -105,10 +106,12 @@ int main()
             userMenu(products, productCount, fileName, 2, shopdata, categories);
             break;
         case 0:
-            std::cout << "Goodbye!\n";
+            std::cout << YELLOW << "Goodbye!\n"
+                      << RESET;
             return 0;
         default:
-            std::cout << "Invalid Input\n";
+            std::cout << RED << "Invalid Input\n"
+                      << RESET;
         }
     } while (choice != 0);
     return 0;
@@ -158,7 +161,8 @@ void loadProducts(std::vector<Product> &products, int &count, const char *file)
     static bool opened = false;
     if (!fin && opened)
     {
-        std::cerr << "Failed to open product file.\n";
+        std::cerr << RED << "Failed to open product file.\n"
+                  << RESET;
     }
     else if (!fin)
     {
@@ -193,7 +197,8 @@ void loadCategories(std::vector<std::string> &categories)
     static bool opened = false;
     if (!fin && opened)
     {
-        std::cerr << "Failed to open categories file.\n";
+        std::cerr << RED << "Failed to open categories file.\n"
+                  << RESET;
         return;
     }
     else if (!fin)
@@ -222,11 +227,13 @@ void addProduct(std::vector<Product> &products, int &count, const char *file, st
             p.id = tempId;
             break;
         }
-        std::cout << "NOTICE!! Product with the same ID exists.\n";
+        std::cout << RED << "NOTICE!! Product with the same ID exists.\n"
+                  << RESET;
     } while (true);
     p.name = inputString("\nEnter product Name: ");
 
-    std::cout << "Available categories:\n";
+    std::cout << BLUE << "Available categories:\n"
+              << RESET;
     int idx = 1;
     std::vector<std::string> catList(categories.begin(), categories.end());
     for (const auto &c : catList)
@@ -241,7 +248,8 @@ void addProduct(std::vector<Product> &products, int &count, const char *file, st
         std::ofstream fout("categories.txt", std::ios::app);
         if (!fout)
         {
-            std::cerr << "Failed to open categories file.\n";
+            std::cerr << RED << "Failed to open categories file.\n"
+                      << RESET;
         }
         else
             fout << p.category << std::endl;
@@ -259,6 +267,8 @@ void addProduct(std::vector<Product> &products, int &count, const char *file, st
     count++;
 
     saveProducts(products, count, file);
+    std::cout << GREEN << "Product added successfully!\n"
+              << RESET;
 }
 
 void editProduct(std::vector<Product> &products, int count, const char *file)
@@ -268,7 +278,8 @@ void editProduct(std::vector<Product> &products, int count, const char *file)
     int index = searchById<Product>(products, count, tempId);
     if (index == -1)
     {
-        std::cout << "Product not found.\n";
+        std::cout << RED << "Product not found.\n"
+                  << RESET;
         return;
     }
 
@@ -300,10 +311,13 @@ void editProduct(std::vector<Product> &products, int count, const char *file)
         products[index].price = inputNumber("\nNew price: ", 0);
         products[index].quantity = inputNumber("\nNew quantity: ", 0);
     default:
-        std::cout << "\nInvalid input\n";
+        std::cout << RED << "\nInvalid input\n"
+                  << RESET;
     }
 
     saveProducts(products, count, file);
+    std::cout << GREEN << "Product edited successfully!\n"
+              << RESET;
 }
 
 void deleteProduct(std::vector<Product> &products, int &count, const char *file)
@@ -313,23 +327,27 @@ void deleteProduct(std::vector<Product> &products, int &count, const char *file)
     int index = searchById<Product>(products, count, tempId);
     if (index == -1)
     {
-        std::cout << "Product not found.\n";
+        std::cout << RED << "Product not found.\n"
+                  << RESET;
         return;
     }
 
     char confirm;
-    std::cout << "Are you sure you want to delete this product? (Y/N): ";
+    std::cout << YELLOW << "Are you sure you want to delete this product? (Y/N): " << RESET;
     std::cin >> confirm;
     std::cin.ignore();
     if (confirm != 'Y' && confirm != 'y')
     {
-        std::cout << "Action canceled.\n";
+        std::cout << RED << "Action canceled.\n"
+                  << RESET;
         return;
     }
     products.erase(products.begin() + index);
     count--;
 
     saveProducts(products, count, file);
+    std::cout << GREEN << "Product deleted successfully!\n"
+              << RESET;
 }
 
 void viewProducts(std::vector<Product> &products, int count, bool hideOut, const std::vector<std::string> &categories, const std::string &filterCategory)
@@ -346,7 +364,8 @@ void viewProducts(std::vector<Product> &products, int count, bool hideOut, const
     }
     if (!hasProduct)
     {
-        std::cout << "\nNo products available.\n";
+        std::cout << RED << "\nNo products available.\n"
+                  << RESET;
         return;
     }
     std::cout << "\nID     Name            Category        Price(ETB)  Qty\n";
@@ -399,6 +418,8 @@ void sortProducts(std::vector<Product> &products, int count)
                 std::swap(products[i], products[j]);
             }
         }
+    std::cout << GREEN << "Product sorted successfully!\n"
+              << RESET;
 }
 void searchProducts(std::vector<Product> &products, int count, int role)
 {
@@ -421,7 +442,8 @@ void searchProducts(std::vector<Product> &products, int count, int role)
         }
     }
     if (!found)
-        std::cout << "No products found.\n";
+        std::cout << RED << "No products found.\n"
+                  << RESET;
 }
 template <typename T>
 int searchById(std::vector<T> &items, int count, const std::string &id)
@@ -434,7 +456,8 @@ int searchById(std::vector<T> &items, int count, const std::string &id)
 
 void buyProduct(std::vector<Product> &products, int count, const char *file, ShopData &data, const std::vector<std::string> &categories)
 {
-    std::cout << "Available categories:\n";
+    std::cout << BLUE << "Available categories:\n"
+              << RESET;
     int idx = 1;
     std::vector<std::string> catList(categories.begin(), categories.end());
     for (const auto &c : catList)
@@ -445,7 +468,8 @@ void buyProduct(std::vector<Product> &products, int count, const char *file, Sho
         int catChoice = inputNumber<int>("Choose category to view products: ", 1);
         if (catChoice > idx)
         {
-            std::cout << "Invalid Input!\n";
+            std::cout << RED << "Invalid Input!\n"
+                      << RESET;
             continue;
         }
         else
@@ -459,7 +483,8 @@ void buyProduct(std::vector<Product> &products, int count, const char *file, Sho
     int i = searchById(products, count, id);
     if (i == -1 || products[i].status == OUT_OF_STOCK)
     {
-        std::cout << "Product unavailable.\n";
+        std::cout << RED << "Product unavailable.\n"
+                  << RESET;
         return;
     }
     std::cout << "Product: " << products[i].name << "\nCategory: " << products[i].category
@@ -467,17 +492,19 @@ void buyProduct(std::vector<Product> &products, int count, const char *file, Sho
     int qty = inputNumber<int>("Enter quantity: ", 1);
     if (qty > products[i].quantity)
     {
-        std::cout << "Not enough stock.\n";
+        std::cout << RED << "Not enough stock.\n"
+                  << RESET;
         return;
     }
 
     char confirm;
-    std::cout << "Confirm purchase? (Y/N): ";
+    std::cout << YELLOW << "Confirm purchase? (Y/N): " << RESET;
     std::cin >> confirm;
     std::cin.ignore();
     if (confirm != 'Y' && confirm != 'y')
     {
-        std::cout << "Order canceled.\n";
+        std::cout << RED << "Order canceled.\n"
+                  << RESET;
         return;
     }
 
@@ -494,7 +521,8 @@ void saveProducts(std::vector<Product> &products, int count, const char *file)
     std::ofstream fout(file);
     if (!fout)
     {
-        std::cerr << "Failed to open product file.\n";
+        std::cerr << RED << "Failed to open product file.\n"
+                  << RESET;
         return;
     }
     fout << count << "\n";
@@ -549,7 +577,8 @@ void generateReceipt(const Product &products, int quantity, ShopData &data, cons
     }
 
     {
-        std::cout << "\n=== RECEIPT ===\n";
+        std::cout << BLUE << "\n=== RECEIPT ===\n"
+                  << RESET;
         std::cout << "Receipt ID: " << receiptID << std::endl;
         std::cout << "Time: " << dt;
         std::cout << "Product: " << products.name << std::endl;
@@ -558,13 +587,15 @@ void generateReceipt(const Product &products, int quantity, ShopData &data, cons
         std::cout << "Subtotal: " << std::fixed << std::setprecision(2) << subtotal << " ETB" << std::endl;
         std::cout << "Tax: " << std::fixed << std::setprecision(2) << tax << " ETB" << std::endl;
         std::cout << "Total: " << std::fixed << std::setprecision(2) << total << " ETB" << std::endl;
-        std::cout << "================\n";
+        std::cout << BLUE << "================\n"
+                  << RESET;
     }
 
     std::ofstream fout("receipts.txt", std::ios::app);
     if (!fout)
     {
-        std::cerr << "Failed to open the receipt file.\n";
+        std::cerr << RED << "Failed to open the receipt file.\n"
+                  << RESET;
         return;
     }
     {
@@ -623,9 +654,11 @@ void userMenu(std::vector<Product> &products, int &count, const char *file, int 
                     break;
                 }
                 else
-                    std::cout << "Wrong password!\n";
+                    std::cout << RED << "Wrong password!\n"
+                              << RESET;
             }
-            std::cout << "\n--- SELLER MENU ---\n";
+            std::cout << BLUE << "\n--- SELLER MENU ---\n"
+                      << RESET;
             std::cout << "1. Add Product\n2. Edit Product\n3. Delete Product\n4. View Products\n5. Sort Products\n6. Search Products\n7. View Summary\n8. Change Password\n0. Back\n";
             choice = inputNumber("Choose role: ", 0);
 
@@ -647,7 +680,8 @@ void userMenu(std::vector<Product> &products, int &count, const char *file, int 
             case 4:
             {
                 std::cout << "\nView products\n";
-                std::cout << "Filter by category:\n"
+                std::cout << BLUE << "Filter by category:\n"
+                          << RESET
                           << "1. All\n";
                 int idx = 2;
                 std::vector<std::string> catList(categories.begin(), categories.end());
@@ -658,7 +692,8 @@ void userMenu(std::vector<Product> &products, int &count, const char *file, int 
                     int cChoice = inputNumber<int>("Choose: ", 1);
                     if (cChoice >= idx)
                     {
-                        std::cout << "Invalid Input!\n";
+                        std::cout << RED << "Invalid Input!\n"
+                                  << RESET;
                         continue;
                     }
                     else
@@ -690,24 +725,28 @@ void userMenu(std::vector<Product> &products, int &count, const char *file, int 
                 if (password == pass)
                 {
                     pass = inputNumber<int>("Enter New Password(at least 4 digit number): ", 1000);
-                    std::cout << "Password changed successfully.\n";
+                    std::cout << GREEN << "Password changed successfully.\n"
+                              << RESET;
                     break;
                 }
                 else
-                    std::cout << "Wrong password!\n";
+                    std::cout << RED << "Wrong password!\n"
+                              << RESET;
             }
             break;
             case 0:
                 flag = true;
                 break;
             default:
-                std::cout << "Invalid Input!\n";
+                std::cout << RED << "Invalid Input!\n"
+                          << RESET;
             }
         }
         else
         {
 
-            std::cout << "\n--- CUSTOMER MENU ---\n";
+            std::cout << BLUE << "\n--- CUSTOMER MENU ---\n"
+                      << RESET;
             std::cout << "1. View Products\n2. Sort Products\n3. Buy Product\n4. Search Products\n0. Back\n";
             choice = inputNumber<int>("Choice: ", 0);
 
@@ -715,7 +754,8 @@ void userMenu(std::vector<Product> &products, int &count, const char *file, int 
             {
             case 1:
             {
-                std::cout << "Filter by category:\n"
+                std::cout << BLUE << "Filter by category:\n"
+                          << RESET
                           << "1. All\n";
                 int idx = 2;
                 std::vector<std::string> catList(categories.begin(), categories.end());
@@ -728,7 +768,8 @@ void userMenu(std::vector<Product> &products, int &count, const char *file, int 
                     int cChoice = inputNumber<int>("Choose: ", 1);
                     if (cChoice >= idx)
                     {
-                        std::cout << "Invalid Input!\n";
+                        std::cout << RED << "Invalid Input!\n"
+                                  << RESET;
                         continue;
                     }
                     else
@@ -752,7 +793,8 @@ void userMenu(std::vector<Product> &products, int &count, const char *file, int 
             case 0:
                 break;
             default:
-                std::cout << "Invalid Input!\n";
+                std::cout << RED << "Invalid Input!\n"
+                          << RESET;
             }
         }
     } while (choice != 0);
