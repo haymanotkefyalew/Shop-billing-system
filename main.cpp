@@ -588,16 +588,16 @@ void viewSellerSummary(const ShopData &data, int productCount)
 
     for (const auto &ps : data.productSummary)
     {
-        std::cout << ps.id << " "
-                  << ps.name << " "
-                  << ps.unitsSold << " "
-                  << ps.sales << " "
-                  << ps.tax << std::endl;
+        std::cout << std::setw(4) << ps.id << " "
+                  << std::setw(14) << ps.name << " "
+                  << std::setw(10) << ps.unitsSold << " "
+                  << std::setw(12) << ps.sales << " "
+                  << std::setw(10) << ps.tax << std::endl;
     }
     std::cout << "Total Items Sold: " << data.totalItemsSold << std::endl;
-    std::cout << "Total Sales: " << data.totalSales << " ETB\n";
-    std::cout << "Total Tax Collected: " << data.totalTax << " ETB\n";
-    std::cout << "Total: " << data.totalTax + data.totalSales << " ETB\n";
+    std::cout << "Total Sales: " << std::fixed << std::setprecision(2) << data.totalSales << " ETB\n";
+    std::cout << "Total Tax Collected: " << std::fixed << std::setprecision(2) << data.totalTax << " ETB\n";
+    std::cout << "Total: " << std::fixed << std::setprecision(2) << data.totalTax + data.totalSales << " ETB\n";
 }
 void userMenu(std::vector<Product> &products, int &count, const char *file, int role, ShopData &data, std::vector<std::string> &categories)
 {
