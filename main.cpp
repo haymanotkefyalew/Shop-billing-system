@@ -549,10 +549,10 @@ void generateReceipt(const Product &products, int quantity, ShopData &data, cons
         std::cout << "Time: " << dt;
         std::cout << "Product: " << products.name << std::endl;
         std::cout << "Quantity: " << quantity << std::endl;
-        std::cout << "Price per unit: " << products.price << " ETB" << std::endl;
-        std::cout << "Subtotal: " << subtotal << " ETB" << std::endl;
-        std::cout << "Tax: " << tax << " ETB" << std::endl;
-        std::cout << "Total: " << total << " ETB" << std::endl;
+        std::cout << "Price per unit: " << std::fixed << std::setprecision(2) << products.price << " ETB" << std::endl;
+        std::cout << "Subtotal: " << std::fixed << std::setprecision(2) << subtotal << " ETB" << std::endl;
+        std::cout << "Tax: " << std::fixed << std::setprecision(2) << tax << " ETB" << std::endl;
+        std::cout << "Total: " << std::fixed << std::setprecision(2) << total << " ETB" << std::endl;
         std::cout << "================\n";
     }
 
@@ -567,10 +567,10 @@ void generateReceipt(const Product &products, int quantity, ShopData &data, cons
         fout << "Time: " << dt;
         fout << "Product: " << products.name << "\n";
         fout << "Quantity: " << quantity << "\n";
-        fout << "Price per unit: " << products.price << " ETB\n";
-        fout << "Subtotal: " << subtotal << " ETB\n";
-        fout << "Tax: " << tax << " ETB\n";
-        fout << "Total: " << total << " ETB\n";
+        fout << "Price per unit: " << std::fixed << std::setprecision(2) << products.price << " ETB\n";
+        fout << "Subtotal: " << std::fixed << std::setprecision(2) << subtotal << " ETB\n";
+        fout << "Tax: " << std::fixed << std::setprecision(2) << tax << " ETB\n";
+        fout << "Total: " << std::fixed << std::setprecision(2) << total << " ETB\n";
         fout << "----------------------\n";
     }
     fout.close();
