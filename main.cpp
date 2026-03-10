@@ -353,10 +353,10 @@ void viewProducts(std::vector<Product> &products, int count, bool hideOut, const
         if (filterCategory != "all" && normalizer(products[i].category) != normalizer(filterCategory))
             continue;
         std::cout << products[i].id << " "
-                  << products[i].name << " "
-                  << products[i].category << " "
-                  << products[i].price << " "
-                  << products[i].quantity << std::endl;
+                  << std::setw(7) << products[i].name << " "
+                  << std::setw(14) << products[i].category << " "
+                  << std::setw(14) << products[i].price << " "
+                  << std::setw(14) << products[i].quantity << std::endl;
     }
 }
 
